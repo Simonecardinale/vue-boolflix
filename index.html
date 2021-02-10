@@ -15,6 +15,7 @@
         <button @click="searchFilm">Cerca</button>
         <div class="container_film">
             <div v-for="val in film" class="film_result">
+                <img :src="poster + val.poster_path" alt="">
                 <h2> {{val.title}} </h2>
                 <h3>Lingua: {{val.original_title}}</h3>
                 <h3>Titolo originale: {{val.original_language}}</h3>
