@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container_film {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.film_result {
+    height: 300px;
+    width: 200px;
+    border: 1px solid grey;
+    display: flex;
+    display: block;
+    margin-top: 20px;
+}
+
+.film_result > * {
+    padding: 10px 0;
+}
