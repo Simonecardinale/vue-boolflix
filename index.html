@@ -16,16 +16,19 @@
 
         <header>
             <img class="logo" src="logo.png" alt="">
-            <div>
-                <input type="text" v-model="query" @keyup.enter="searchFilm">
-                <button @click="searchFilm">Cerca</button>
+            <div class="search_container">
+                <input :class="showSearchClass" type="text" v-model="query" @keyup.enter="searchFilm">
+                <button :class="showSearchClass" @click="searchFilm">Cerca</button>
             </div>
+            <i @click="showSearch()" class="fas fa-search"></i>
         </header>
 
         <div class="container_film">
             <div v-for="(val, index) in film" class="film_result">
-                <img v-if="val.poster_path" :src="poster + val.poster_path" alt="">
-                <img v-else src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="">
+                <div class="img_container">
+                    <img class="img_result" v-if="val.poster_path" :src="poster + val.poster_path" alt="">
+                    <img class="img_result" v-else src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="">
+                </div>
                 <div class="container_details">
                     <h2> {{val.title}} </h2>
                     <h3>
@@ -42,8 +45,10 @@
                 </div>
             </div>
             <div v-for="(val, index) in series" class="film_result">
-                <img v-if="val.backdrop_path" :src="poster + val.backdrop_path" alt="">
-                <img v-else src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="">
+                <div class="img_container">
+                    <img class="img_result" v-if="val.backdrop_path" :src="poster + val.backdrop_path" alt="">
+                    <img class="img_result" v-else src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="">
+                </div>
                 <div class="container_details">
                     <h2> {{val.name}} </h2>
                     <h3>

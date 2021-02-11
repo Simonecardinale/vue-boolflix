@@ -7,7 +7,8 @@ var app = new Vue({
         poster: "https://image.tmdb.org/t/p/w342",
         votoStella: [],
         votoStellaSerie:[],
-        bandiere: ['en', 'it']
+        bandiere: ['en', 'it'],
+        showSearchClass: "hide"
     },
     methods: {
         searchFilm(){
@@ -22,6 +23,10 @@ var app = new Vue({
                 this.film = result.data.results;
                 voto(this.film, this.votoStella);
             });
+
+            //TV series
+
+
             axios.get('https://api.themoviedb.org/3/search/tv?api_key=170b9b6ee3a93a04400d81014d1e9315&language=it-IT&page=1&include_adult=false', {
                 params: {
                     query: this.query,
@@ -31,6 +36,16 @@ var app = new Vue({
                 voto(this.series, this.votoStellaSerie)
             });
         },
+
+        // mostro e nascondo la barra di ricerca tramite l'icona a lente d'ingrandimento
+
+        showSearch() {
+            if(this.showSearchClass == "hide") {
+                this.showSearchClass = "show"
+            } else {
+                this.showSearchClass = "hide"
+            }
+        }
     },
 });
 
