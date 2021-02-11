@@ -30,12 +30,12 @@
                     <img class="img_result" v-else src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="">
                 </div>
                 <div class="container_details">
-                    <h2> {{val.title}} </h2>
+                    <h2> {{val.title || val.name}} </h2>
                     <h3>
                         Lingua: <img v-if="bandiere.includes(val.original_language)" class="bandiera" :src="val.original_language + '.webp'" alt="">
                         <span v-else> {{val.original_language}}</span>
                     </h3>
-                    <h3>Titolo originale: {{val.original_title}}</h3>
+                    <h3>Titolo originale: {{val.original_title || val.original_name}}</h3>
                     <h4>Voto: {{val.vote_average}}</h4>
                     <h4>Voto: 
                         <i v-for="i in votoStella[index]" class="fas fa-star"></i>
@@ -44,9 +44,9 @@
                     <p>Trama: {{val.overview}}</p>
                 </div>
             </div>
-            <div v-for="(val, index) in series" class="film_result">
+            <!-- <div v-for="(val, index) in series" class="film_result">
                 <div class="img_container">
-                    <img class="img_result" v-if="val.backdrop_path" :src="poster + val.backdrop_path" alt="">
+                    <img class="img_result" v-if="val.poster_path" :src="poster + val.poster_path" alt="">
                     <img class="img_result" v-else src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="">
                 </div>
                 <div class="container_details">
@@ -63,7 +63,7 @@
                         <i v-for="i in 5 - votoStellaSerie[index]" class="far fa-star"></i>
                     </h4>
                     <p>Trama: {{val.overview}}</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

@@ -32,8 +32,9 @@ var app = new Vue({
                     query: this.query,
                 }
             }).then((result)=> {
-                this.series = result.data.results;
-                voto(this.series, this.votoStellaSerie)
+                this.film = this.film.concat(result.data.results);
+                console.log(this.film);
+                voto(this.film, this.votoStellaSerie)
             });
         },
 
@@ -64,5 +65,6 @@ var app = new Vue({
 function voto(arrayPartenza, arrayDestinazione) {
     for(let k in arrayPartenza){
         arrayDestinazione.push(Math.trunc(Math.ceil((arrayPartenza[k].vote_average * 0.5))));
-    } return arrayDestinazione
+    } 
+    return arrayDestinazione
 }
