@@ -25,3 +25,7 @@
 .film_result h4 > i {
     color: rgb(255, 166, 0);
 }
+
+.bandiera {
+    width: 30px;
+}

@@ -6,6 +6,8 @@ var app = new Vue({
         query: '',
         poster: "https://image.tmdb.org/t/p/w342",
         votoStella: [],
+        votoStellaSerie:[],
+        bandiere: ['en', 'it']
     },
     methods: {
         searchFilm(){
@@ -28,7 +30,9 @@ var app = new Vue({
                 }
             }).then((result)=> {
                 this.series = result.data.results;
-                console.log(this.film);
+                for(let k in this.series){
+                    this.votoStellaSerie.push(Math.trunc(Math.ceil((result.data.results[k].vote_average * 0.5))));
+                }
             });
         },
     }
