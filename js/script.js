@@ -2,11 +2,9 @@ var app = new Vue({
     el: '#app',
     data: {
         film: [],
-        series:[],
         query: '',
         poster: "https://image.tmdb.org/t/p/w342",
         votoStella: [],
-        votoStellaSerie:[],
         bandiere: ['en', 'it'],
         showSearchClass: "hide"
     },
@@ -34,7 +32,7 @@ var app = new Vue({
             }).then((result)=> {
                 this.film = this.film.concat(result.data.results);
                 console.log(this.film);
-                voto(this.film, this.votoStellaSerie)
+                voto(this.film, this.votoStella)
             });
         },
 

@@ -25,10 +25,12 @@
 
         <div class="container_film">
             <div v-for="(val, index) in film" class="film_result">
+
                 <div class="img_container">
                     <img class="img_result" v-if="val.poster_path" :src="poster + val.poster_path" alt="">
                     <img class="img_result" v-else src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="">
                 </div>
+
                 <div class="container_details">
                     <h2> {{val.title || val.name}} </h2>
                     <h3>
@@ -43,6 +45,7 @@
                     </h4>
                     <p>Trama: {{val.overview}}</p>
                 </div>
+                
             </div>
             <!-- <div v-for="(val, index) in series" class="film_result">
                 <div class="img_container">
